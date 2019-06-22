@@ -1,0 +1,63 @@
+<script>
+
+    let socket = io('/artboard');
+    socket.on("add-cutting", addCutting);
+
+    let cuttings = {
+        count: 0
+    };
+
+    function addCutting(data) {
+        cuttings.count +=1;
+
+        let i = $("<img/>", {
+                        src: data.cutting, 
+                        id: "cutting-" + cuttings.count,
+                        class: "cutting",
+                    })
+                    .on("dblclick", removeCutting)
+                    .on("click", bringCuttingForward)
+                    .draggable({stop: dragStop});        
+
+        $("#cuttings").append(i);
+    }
+
+    function bringCuttingForward(e) {
+        // find the z-index of the top-most item
+        var maxZindex = 0;
+            $('img').each(function() {
+                var z = parseInt($(this).css('z-index'));
+                if(isNaN(z)) z = 0;
+                if(z > maxZindex) maxZindex = z;
+            });
+
+            // assign a z-index greater than the current max to the clicked item
+            $(e.target).css('z-index', maxZindex+1);        
+    }
+
+    function removeCutting(e) {
+        $(e.target).remove();
+    }
+
+    function dragStop(e) {}
+
+    function saveArtboard() {
+        // loop through the image
+        // log the url, x pox, y pos, z-index/order
+        // save to local storage
+    }
+
+    function takeSnapshot() {
+        //http://html2canvas.hertzen.com/
+    }
+
+    $(document).ready(() => {
+        {{!-- init(); --}}
+    });
+
+</script>
+
+<div id="artspace">
+    <section id="art-space"></section>
+    <section id="cuttings"></section>
+</div>

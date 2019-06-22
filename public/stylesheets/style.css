@@ -1,0 +1,71 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background: #222222;
+  margin: 0;
+  padding: 0;
+  color: #d0d0d0;
+  overflow: hidden;
+}
+
+a {
+  color: #00B7FF;
+}
+
+#mainmenu {
+  padding: 20px;
+  color: #ffffff;
+  font-size: 200%;
+}
+
+#mainmenu h1 {
+  color: #ffffff;
+  font-size: 250%;
+}
+
+#workspace {
+  display: grid;
+  grid-template-columns: 45vw 54vw;
+  grid-template-rows: 100vh;
+  grid-gap: 1rem; 
+  background: #222222;
+  /* height: calc(var(--vh, 1vh) * 100); */
+  /* width: calc(var(--vw, 1vw) * 100); */
+}
+
+#artspace {
+  display: grid;
+  grid-template-columns: 100vw;
+  grid-template-rows: 75vh 20vh;
+  grid-gap: 1rem; 
+  height: calc(var(--vh, 1vh) * 100);
+}
+
+#overlay {
+  position: absolute;
+  overflow: hidden;
+}
+
+#cutting-mat {
+  overflow-y: scroll;
+}
+
+#controls {
+  overflow-y: scroll;
+}
+
+#filmstrip img {
+  padding: 0.2rem
+}
+
+#cuttings {
+  
+}
+
+.cutting {
+  position: absolute;
+}
+
+#art-space {
+
+}
